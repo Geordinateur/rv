@@ -1,9 +1,17 @@
+<script>
+import NavBar from './components/NavBar'
+export default {
+		name: 'App', 
+		components: {
+				NavBar
+		}
+}
+</script>
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+	<NavBar />
+	<div>
+		<router-view class="main"/>
+	</div>
 </template>
 
 <style>
@@ -11,7 +19,6 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
@@ -27,4 +34,8 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+ .main {
+		padding: 1vh;
+		margin-top: 60px;
+ }
 </style>
