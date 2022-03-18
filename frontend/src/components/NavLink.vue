@@ -7,7 +7,7 @@ export default {
 
 <template>
 	<router-link :to="url" class="navbar-link">
-	<li :class="[isActive && 'router-link-active']" class="nav-item"><i :class="icon"></i> <span class="nav-mylink">{{ text }}</span>
+	<li class="nav-item"><i :class="icon"></i> <span>{{ text }}</span>
 	</li>
 	</router-link> 
 </template>
@@ -16,7 +16,7 @@ export default {
 	a {
 		text-decoration: none;
 	}
-	.navbar-link {
-		margin: 1vh 0 1vh;
+	.nav-item {
+		margin: 1vh 1vh 1vh 0;
 	}
 </style>

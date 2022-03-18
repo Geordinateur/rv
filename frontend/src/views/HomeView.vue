@@ -1,18 +1,37 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div class="home">
+		<div v-if="user.name">
+			<Results />
+		</div>
+		<div v-else>
+			<Login />
+			Local Storage : {{ test }}
+		</div>
+	</div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mapState } from 'vuex'
+import Login from '../components/Login'
+import Results from '../components/Results'
 
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
+	name: 'HomeView',
+	data() {
+		return {
+				test: localStorage.getItem('token')
+		}
+	},
+	components: {
+		Login,
+		Results
+	},
+	computed: 
+	{
+		...mapState(['user'])
+	},
+	mounted: function() {
+		localStorage.setItem('token', 'HELLOWORLD')
+	}
 }
 </script>

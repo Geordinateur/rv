@@ -68,3 +68,10 @@ Dropdown
 </nav>
 
 </template>
+
+<style>
+.navbar {
+		padding-left: 0;
+		padding-right: 0
+}
+</style>

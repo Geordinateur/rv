@@ -1,5 +1,45 @@
+<script>
+import axios from 'axios';
+
+export default {
+  components: {
+  },
+  data()  {
+    return {
+      form: {
+        name: '',
+        email: '',
+        password: '',
+        passwordVerify: '',
+      }
+    }
+  },
+  methods: {
+    send: function (event) {
+      event.preventDefault()
+      axios
+        .post('/register', this.form)
+        .then((response) => {
+          console.log(response.data.message)
+          //this.$emit('alert', { messageAlert: JSON.parse(response.request.response).message, statusAlert: 'success', showAlert: true})
+          this.form.from = ""
+          this.form.subject = ""
+          this.form.text = ""
+        })
+        .catch((error) => {
+          console.log(error.response.data.message)
+          this.$emit('alert', { messageAlert: JSON.parse(error.request.response).message, statusAlert: 'error', showAlert: true})
+        });
+    },
+	}
+}
+</script>
 <template>
-<form class="p-3">
+<form>
+<div class="form-group">
+<label for="name">Pseudonyme</label>
+<input type="text" class="form-control" id="name" placeholder="Entrez un pseudo">
+</div>
 <div class="form-group">
 <label for="email">Email address</label>
 <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Entrez une adresse email">

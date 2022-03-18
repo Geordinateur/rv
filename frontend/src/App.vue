@@ -1,16 +1,18 @@
 <script>
 import NavBar from './components/NavBar'
+
 export default {
-		name: 'App', 
-		components: {
-				NavBar
-		}
+	name: 'App', 
+	components: {
+		NavBar,
+	},
 }
 </script>
 <template>
 	<NavBar />
-	<div>
-		<router-view class="main"/>
+	<div class="main">
+		<h2>{{ $route.name }}</h2>
+		<router-view />
 	</div>
 </template>
 
@@ -35,7 +37,7 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
  .main {
-		padding: 1vh;
-		margin-top: 60px;
+		padding: 2vh;
+		margin-top: 9vh;
  }
 </style>
