@@ -56,7 +56,7 @@ Dropdown
 </button>
 <div class="collapse navbar-collapse" id="navbarCollapse">
 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-	<NavLink :active="isActive" url="/" text="Accueil" />
+	<NavLink url="/" text="Accueil" />
 	<NavLink url="/register" text="Inscription" />
 </ul>
 <form class="d-flex">
@@ -72,6 +72,6 @@ Dropdown
 <style>
 .navbar {
 		padding-left: 0;
-		padding-right: 0
+		padding-right: 0;
 }
 </style>

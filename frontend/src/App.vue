@@ -1,5 +1,6 @@
 <script>
 import NavBar from './components/NavBar'
+import axios from 'axios';
 
 export default {
 	name: 'App', 
@@ -7,6 +8,10 @@ export default {
 		NavBar,
 	},
 }
+axios.defaults.baseURL = 'http://192.168.1.33:3000/api'
+//axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.token;
+//axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
+//axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 </script>
 <template>
 	<NavBar />
@@ -38,6 +43,6 @@ nav a.router-link-exact-active {
 }
  .main {
 		padding: 2vh;
-		margin-top: 9vh;
+		padding-top: 20%;
  }
 </style>

@@ -6,24 +6,24 @@ const tokenConfig = require("../config/tokenConfig.js");
 
 //create and save a new user
 exports.create = (req, res) => {
-	console.log("CREATE");
-	console.log(req.body);
 	//validate request
-	if(!req.body) {
+	if(!req.body.email || !req.body.name || !req.body.password) {
 		res.status(400).send({
 			message: "Content can not be emplty",
 		});
+			return;
 	}
 	if(req.body.password !== req.body.passwordVerify) {
 		res.status(500).send({
-			message: "Passords isnt identique",
+			message: "Passwords isnt identique",
 		});
+			return;
 	}
 
 	//create
 	const salt = bcrypt.genSaltSync(saltRounds);
 	const hash = bcrypt.hashSync(req.body.password, salt);
-	const user = new User({
+	let user = new User ({
 		name: req.body.name,
 		email: req.body.email,
 		password: hash

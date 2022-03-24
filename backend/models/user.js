@@ -2,9 +2,9 @@ const sql = require("./db.js");
 const bcrypt = require("bcryptjs");
 
 //constructor
-const User = function(user) {
+function User (user) {
 	this.email = user.email;
-	this.name = user.name;
+	this.username = user.name;
 	this.password = user.password;
 };
 
@@ -16,7 +16,7 @@ User.create = (newUser, result) => {
 			return;
 		}
 		console.log("created user: ", { id: res.insertId, ...newUser });
-		result(null, { id: res.insertId, ...newUser });
+		result(null, { message: 'User created with succefull', id: res.insertId, ...newUser });
 	});
 };
 
@@ -79,3 +79,5 @@ User.remove = (id, result) => {
 		result(null, res);
 	});
 };
+
+module.exports = User;
