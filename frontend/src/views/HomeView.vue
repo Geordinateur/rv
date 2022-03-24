@@ -1,19 +1,17 @@
 <template>
 	<div class="home">
-		<div v-if="user.name">
+		<div v-if="$store.state.user.token">
 			<Results />
 		</div>
 		<div v-else>
-			<Login />
-			Local Storage : {{ test }}
+			Identifiez-vous!
 		</div>
 	</div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import Login from '../components/Login'
 import Results from '../components/Results'
+import { mapState } from 'vuex'
 
 export default {
 	name: 'HomeView',
@@ -23,15 +21,10 @@ export default {
 		}
 	},
 	components: {
-		Login,
 		Results
 	},
-	computed: 
-	{
+	computed: {
 		...mapState(['user'])
 	},
-	mounted: function() {
-		localStorage.setItem('token', 'HELLOWORLD')
-	}
 }
 </script>

@@ -1,32 +1,39 @@
 <script>
-import NavBar from './components/NavBar'
-import axios from 'axios';
+import HeaderView from './components/HeaderView'
+import FooterView from './components/FooterView'
 
 export default {
 	name: 'App', 
 	components: {
-		NavBar,
-	},
+		HeaderView,
+		FooterView
+	}
 }
-axios.defaults.baseURL = 'http://192.168.1.33:3000/api'
-//axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.token;
-//axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
-//axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 </script>
 <template>
-	<NavBar />
-	<div class="main">
-		<h2>{{ $route.name }}</h2>
-		<router-view />
-	</div>
+	<HeaderView />
+	<router-view class="main"/>
+	<FooterView />
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+.main {
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #2c3e50;
+	padding: 2vh;
+	padding-top: 20%;
+ }
+ .navbar {
+	padding-left: 0;
+	padding-right: 0;
+}	
+a {
+	text-decoration: none;
+}
+.navbar-link {
+	margin: 1vh 1vh 1vh 0;
 }
 
 nav {
@@ -41,8 +48,4 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
- .main {
-		padding: 2vh;
-		padding-top: 20%;
- }
 </style>

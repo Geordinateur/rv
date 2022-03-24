@@ -58,6 +58,7 @@ Dropdown
 <ul class="navbar-nav me-auto mb-2 mb-md-0">
 	<NavLink url="/" text="Accueil" />
 	<NavLink url="/register" text="Inscription" />
+	<li v-if="$store.state.user.token">HELLO {{ $store.state.user.username }}</li>
 </ul>
 <form class="d-flex">
 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

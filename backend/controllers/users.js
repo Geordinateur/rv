@@ -46,6 +46,7 @@ exports.login = (req, res) => {
 		res.status(400).send({
 			message: "Content can not be emplty!",
 		});
+		return
 	}
 	//login
 	User.login(req.body.email, req.body.password, (err, data) => {
@@ -64,8 +65,10 @@ exports.login = (req, res) => {
 				});
 			}
 		} else {
+			console.log("DATA: " + data)
 			res.status(200)
 				.send({
+					...data,
 					message: "Identification réussite!",
 					token: jwt.sign(
 						{ userId : data.id },

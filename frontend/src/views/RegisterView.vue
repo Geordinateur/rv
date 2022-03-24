@@ -2,7 +2,7 @@
 import axios from 'axios'
 import AlertItem from '../components/AlertItem'
 
-
+axios.defaults.baseURL = 'http://192.168.1.33:3000/api'
 
 export default {
   components: {
@@ -10,10 +10,8 @@ export default {
   },
   data()  {
     return {
-			alert: {
-			},
-      form: {
-      }
+			alert: {},
+      form: {}
     }
   },
   methods: {
@@ -31,7 +29,7 @@ export default {
 					this.alert.message = error.response.data.message
 					this.alert.show = true
 					this.alert.status = 'alert-danger'
-        });
+        })
     },
 	}
 }
