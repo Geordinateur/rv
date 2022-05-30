@@ -12,7 +12,7 @@ export default {
 </script>
 <template>
 	<HeaderView />
-	<router-view class="main"/>
+	<router-view class="main" />
 	<FooterView />
 </template>
 
